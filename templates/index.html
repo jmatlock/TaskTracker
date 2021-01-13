@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Task Tracker</h1>
+    <table class="table table-bordered">
+    <thead><tr>
+        <td>Category</td>
+        <td>Summary</td>
+        <td>Details</td>
+        <td>Location</td>
+    </tr></thead>
+    {% for task in all_tasks_list %}
+        <tr>
+        <td>{{ task.category }}</td>
+        <td>{{ task.summary }}</td>
+        <td>{{ task.details }}</td>
+        <td>{{ task.location }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock content %}
