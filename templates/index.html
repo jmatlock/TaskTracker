@@ -2,8 +2,11 @@
 
 {% block content %}
     <h1>Task Tracker</h1>
+    <a href="{% url 'task_new' %}">+ New Task</a>
     <table class="table table-bordered">
     <thead><tr>
+        <td>Edit</td>
+        <td>Delete</td>
         <td>Category</td>
         <td>Summary</td>
         <td>Details</td>
@@ -11,8 +14,23 @@
     </tr></thead>
     {% for task in all_tasks_list %}
         <tr>
+        <td>
+            <a href="{% url 'task_edit' task.pk %}">
+            Edit
+        </a>
+        </td>
+        <td>
+            <a href="{% url 'task_delete' task.pk %}">
+            Delete
+        </a>
+        </td>
+        <td>Delete</td>
         <td>{{ task.category }}</td>
-        <td>{{ task.summary }}</td>
+        <td>
+            <a href="{% url 'task_detail' task.pk %}">
+            {{ task.summary }}
+            </a>
+        </td>
         <td>{{ task.details }}</td>
         <td>{{ task.location }}</td>
         </tr>

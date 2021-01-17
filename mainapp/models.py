@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
@@ -28,6 +29,9 @@ class Task(models.Model):
 
     def __str__(self):
         return self.summary[:50]
+
+    def get_absolute_url(self):
+        return reverse('task_detail', args=[str(self.id)])
 
 
 class WorkItem(models.Model):
